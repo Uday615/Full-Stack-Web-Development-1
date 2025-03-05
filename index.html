@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./form.css" >
+</head>
+<body>
+    <form onsubmit="return validate()" class ="parent-container" action="https://www.google.com/">
+        <h1> Registered Form </h1>
+        <div class="form-field">
+            <input name="name" id= "name" type="text" placeholder="Enter ur name" required/>
+        </div >
+        <div class="form-field">
+            <input name="userEmail" id= "userEmail" type="email" placeholder="Enter email" required/>
+        </div >
+        <div class="form-field">
+            <input name="userPassword" id= "userPassword" type="password" placeholder="Enter password" required/>
+        </div>
+        <div class="form-field">
+            <input name="mobileNumber" id= "userNumber" type="tel" placeholder="Enter no." required/>
+        </div>
+        <div class="form-field">
+            <input name="userDate"  id= "userDate" type="date" required/>
+        </div>
+        <button>Submit</button>
+    </form>
+    <script>
+        function validate(){
+            var name=document.getElementById("name").value 
+            var email=document.getElementById("userEmail").value 
+            var password=document.getElementById("userPassword").value 
+            var number=document.getElementById("userNumber").value 
+            var date=document.getElementById("userDate").value 
+            var nameCheck=/^[a-zA-Z]+[a-zA-Z ]+$/
+            var emailCheck=/^[a-zA-Z0-9]+@[a-z]+\.[a-z]{2,3}$/
+            var passwordCheck=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+            var noCheck=/^[6-9]\d{9}$/
+            var dateCheck=/^(200[3-5])-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
+            console.log(name,email,password,number,date)
+            if(!name.match(nameCheck)||(name.length <3)){
+            alert("check ur name")
+            return false;
+            }
+            if(!email.match(emailCheck))
+            {
+                alert("check ur email")
+            return false;
+            }
+            if(!password.match(passwordCheck))
+            {
+                alert("enter strong password")
+            return false;
+            }
+            if(!number.match(noCheck))
+            {
+                alert("check ur number")
+            return false;
+            }
+            if(!date.match(dateCheck))
+            {
+                alert("check ur date")
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
